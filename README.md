@@ -1,5 +1,9 @@
 - [] Simple (read records from a source, write them to a destination)
 - [] Record processing
+- [] Multiple sources to multiple destinations --- not really a thing
+- [] one to many
+- [] explore joins
+
 
 ### App design
 Split into:
@@ -12,7 +16,8 @@ Split into:
 * supported java versions?
 * properties?
 * maven artifact/gradle analogue 
-* logging 
+* logging
+  * goes to std out
 * automatically add turbine-related metadata?
 
 #### Fluent API
