@@ -15,11 +15,16 @@ public interface Resource {
 
     /**
      * Writes the records from this resource into the resource with the given name.
+     * <br />
      * <b>Important</b>: Returns the destination resource!
-     * @param resourceName
-     * @param collectionName
-     * @param resourceConfigs
-     * @return
+     *
+     * @param resourceName    Name of the resource
+     * @param collectionName  Name of the collection (table, collection, bucket etc.) within the resources
+     * @param resourceConfigs Additional resource configuration
+     * @return The configured <b>destination</b> resource.
      */
+    // TODO while convenient to write to a resource using this method,
+    // it's a little bit confusing that the method returns the destination resource,
+    // and not "this" resource.
     Resource writeTo(String resourceName, String collectionName, ResourceConfigs resourceConfigs);
 }
