@@ -1,9 +1,9 @@
 ### Examples
-- [] Simple (read records from a source, write them to a destination)
-- [] Record processing
-- [] Multiple sources to multiple destinations --- not really a thing
-- [] one to many
-- [] explore joins (merge payloads of records with same keys, assuming they are structured)
+[] Simple (read records from a source, write them to a destination)
+[] Record processing
+[] Multiple sources to multiple destinations --- not really a thing
+[] one to many
+[] explore joins (merge payloads of records with same keys, assuming they are structured)
 
 ### Principles and requirements
 1. No separate types for sources and destinations
