@@ -1,7 +1,6 @@
-package com.meroxa.turbine.fluent;
+package com.meroxa.turbine.fluent.sdk;
 
-import com.meroxa.turbine.fluent.sdk.Resource;
-import com.meroxa.turbine.fluent.sdk.Turbine;
+import java.util.Collection;
 
 public class TestTurbine implements Turbine {
     @Override
@@ -14,11 +13,17 @@ public class TestTurbine implements Turbine {
 
     }
 
-
     /**
      * Registers a source, for which the data will be loaded from the given file.
      */
     public TestTurbine withSource(String name, String path) {
+        return null;
+    }
+
+    /**
+     * Registers a source, for which the data will be returned from the given collection.
+     */
+    public TestTurbine withSource(String name, Collection<TurbineRecord> records) {
         return null;
     }
 
