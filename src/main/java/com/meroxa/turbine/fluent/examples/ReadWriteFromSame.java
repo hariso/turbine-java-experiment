@@ -6,6 +6,7 @@ import com.meroxa.turbine.fluent.sdk.Resource;
 import com.meroxa.turbine.fluent.sdk.Turbine;
 import com.meroxa.turbine.fluent.sdk.TurbineApp;
 
+// Read data from a resource, process, write to same resource
 public class ReadWriteFromSame implements TurbineApp {
 
     @Override
@@ -17,5 +18,12 @@ public class ReadWriteFromSame implements TurbineApp {
             .process(new ReEncryptPassword());
 
         mysql.write(records, "users_new", new ConnectionOptions());
+
+        // Alternatively:
+        mysql
+            .read("users_old", new ConnectionOptions())
+            .process(new AddMetadata())
+            .process(new ReEncryptPassword())
+            .writeTo(mysql, "users_new", new ConnectionOptions());
     }
 }

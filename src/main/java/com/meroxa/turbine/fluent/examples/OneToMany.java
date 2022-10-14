@@ -3,28 +3,30 @@ package com.meroxa.turbine.fluent.examples;
 import java.util.List;
 
 import com.meroxa.turbine.fluent.sdk.Processor;
-import com.meroxa.turbine.fluent.sdk.TurbineRecord;
+import com.meroxa.turbine.fluent.sdk.Records;
 import com.meroxa.turbine.fluent.sdk.Turbine;
 import com.meroxa.turbine.fluent.sdk.TurbineApp;
+import com.meroxa.turbine.fluent.sdk.TurbineRecord;
 
 // Imaginary pipeline, taking user accounts from a MongoDB source, and then:
 // (1) adding metadata,
-// (2) generating emails using a Hubspot destination,
-// (3) and moving the data to a MySQL DB.
+// (2) generating emails and sending them using a Hubspot destination,
+// (3) re-encrypting the password and migrating the users to a MySQL DB.
 public class OneToMany implements TurbineApp {
     @Override
     public void setup(Turbine turbine) {
-        turbine
-            .resource("mongodb-resource", "users_collection", null)
-            .process(new AddMetadata())    // processor attached to source
-            .process(this::generateEmail)  // processor attached to source
-            .writeTo("hubspot-resource", "users", null);
+        Records records = turbine
+            .resource("mongodb-resource")
+            .read("users_collection", null)
+            .process(new AddMetadata());
 
-        turbine
-            .resource("mongodb-resource", "users_collection", null)
-            .process(new AddMetadata())    // processor attached to source
-            .writeTo("mysql-resource", "users", null)
-            .process(this::reEncryptPasswords);  // processor attached to destination
+        records
+            .process(this::generateEmail)
+            .writeTo(turbine.resource("hubspot-resource"), "users", null);
+
+        records
+            .process(this::reEncryptPasswords)
+            .writeTo(turbine.resource("mysql-resource"), "users", null);
     }
 
     // Transforms incoming records, representing users,
