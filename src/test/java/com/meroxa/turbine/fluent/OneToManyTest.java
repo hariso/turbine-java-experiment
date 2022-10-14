@@ -9,7 +9,11 @@ import com.meroxa.turbine.fluent.sdk.Turbine;
 import com.meroxa.turbine.fluent.sdk.TurbineRecord;
 import org.junit.jupiter.api.Test;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 
 class OneToManyTest {
     @Test
@@ -24,6 +28,6 @@ class OneToManyTest {
 
         new OneToMany().setup(testTurbine);
         // Verify correct data has been received by the destination mocks
-
+        verify(hubspotDest, never()).read(anyString(), any());
     }
 }
