@@ -1,7 +1,7 @@
 package com.meroxa.turbine.fluent;
 
 import com.meroxa.turbine.fluent.sdk.Resource;
-import com.meroxa.turbine.fluent.sdk.ResourceConfigs;
+import com.meroxa.turbine.fluent.sdk.ConnectionOptions;
 import com.meroxa.turbine.fluent.sdk.Turbine;
 
 public class TestTurbine implements Turbine {
@@ -11,7 +11,7 @@ public class TestTurbine implements Turbine {
     }
 
     @Override
-    public Resource source(String resourceName, String collectionName, ResourceConfigs configs) {
+    public Resource source(String resourceName, String collectionName, ConnectionOptions configs) {
         return null;
     }
 

@@ -24,7 +24,8 @@ public interface Resource {
      * @return The configured <b>destination</b> resource.
      */
     // TODO while convenient to write to a resource using this method,
-    // it's a little bit confusing that the method returns the destination resource,
-    // and not "this" resource.
-    Resource writeTo(String resourceName, String collectionName, ResourceConfigs resourceConfigs);
+    //   it's a little bit confusing that the method returns the destination resource,
+    //   and not "this" resource.
+    //   It may be useful to have a 'Collection' type to represent it.
+    Resource writeTo(String resourceName, String collectionName, ConnectionOptions resourceConfigs);
 }

@@ -1,10 +1,5 @@
 package com.meroxa.turbine.fluent.sdk;
 
-// Replace the main method?
-// Cannot be limited to an interface at compile time
-@interface TurbineAppAnnotation {
-}
-
 /**
  * Represents Meroxa's Turbine engine.
  */
@@ -16,6 +11,7 @@ public interface Turbine {
     //  but only ever used as a destination? Should we warn about that?
     Resource source(String name);
 
-    Resource source(String resourceName, String collectionName, ResourceConfigs configs);
+    // TODO The resource returned here doesn't match with Meroxa terminology.
+    //   Namely, this declares a "resource" from a collection
+    Resource source(String resourceName, String collectionName, ConnectionOptions configs);
 }
-

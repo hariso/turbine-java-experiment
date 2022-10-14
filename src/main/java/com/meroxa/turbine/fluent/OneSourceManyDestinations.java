@@ -27,15 +27,20 @@ public class OneSourceManyDestinations implements TurbineApp {
             .writeTo("mysql-resource", "users", null);
     }
 
+    // Transforms incoming records, representing users,
+    // into emails, ready to be sent out.
     private List<TurbineRecord> generateEmail(List<TurbineRecord> records) {
         return records;
     }
 
+    // Re-encrypts password in records (which represent users),
+    // so they are ready to be migrated to MySQL.
     private List<TurbineRecord> reEncryptPasswords(List<TurbineRecord> records) {
         return records;
     }
 }
 
+// Adds some metadata to all the records.
 class AddMetadata implements Processor {
 
     @Override
