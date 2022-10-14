@@ -34,6 +34,6 @@ Split into:
 
 ### Questions
 1. ~~Why does process() need to be an exported/public method?~~
-2. Allow reading all collections from a resource (we're considering that an anti-pattern)?
-3. Is it expected to write the same records to two destinations?
-4. Is there any metadata we want to automatically add to all records (e.g. name of the turbine app and the version)?
+2. Should we allow reading all collections from a resource? We're considering that an anti-pattern and discourage that,
+so should we make it impossible?
+3. Is there any metadata we want to automatically add to all records (e.g. name of the turbine app and the version)?
