@@ -16,15 +16,15 @@ public class OneSourceManyDestinations implements TurbineApp {
     public void setup(Turbine turbine) {
         turbine
             .source("mongodb-resource", "users_collection", null)
-            .process(new AddMetadata())
-            .process(this::generateEmail)
+            .process(new AddMetadata())    // processor attached to source
+            .process(this::generateEmail)  // processor attached to source
             .writeTo("hubspot-resource", "users", null);
 
         turbine
             .source("mongodb-resource", "users_collection", null)
-            .process(new AddMetadata())
-            .process(this::reEncryptPasswords)
-            .writeTo("mysql-resource", "users", null);
+            .process(new AddMetadata())    // processor attached to source
+            .writeTo("mysql-resource", "users", null)
+            .process(this::reEncryptPasswords);  // processor attached to destination
     }
 
     // Transforms incoming records, representing users,
