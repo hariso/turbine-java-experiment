@@ -1,12 +1,13 @@
 package com.meroxa.turbine.fluent;
 
+import com.meroxa.turbine.fluent.examples.OneToMany;
 import com.meroxa.turbine.fluent.sdk.Resource;
 import com.meroxa.turbine.fluent.sdk.Turbine;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
 
-class OneSourceManyDestinationsTest {
+class OneToManyTest {
     @Test
     public void test() {
         Resource hubspotDest = mock(Resource.class);
@@ -16,7 +17,7 @@ class OneSourceManyDestinationsTest {
             .withDestination("hubspost-resource", hubspotDest)
             .withDestination("mysql-resource", mysqlDest);
 
-        new OneSourceManyDestinations().setup(testTurbine);
+        new OneToMany().setup(testTurbine);
         // Verify correct data has been received by the destination mocks
 
     }

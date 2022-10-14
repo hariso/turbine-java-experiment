@@ -9,9 +9,7 @@ public interface Turbine {
      */
     // todo what if a resource is "declared" as a source,
     //  but only ever used as a destination? Should we warn about that?
-    Resource source(String name);
+    Resource resource(String name);
 
-    // TODO The resource returned here doesn't match with Meroxa terminology.
-    //   Namely, this declares a "resource" from a collection
-    Resource source(String resourceName, String collectionName, ConnectionOptions configs);
+    void registerSecret(String name);
 }

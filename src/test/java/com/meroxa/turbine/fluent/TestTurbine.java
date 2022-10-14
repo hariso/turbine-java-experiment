@@ -6,12 +6,12 @@ import com.meroxa.turbine.fluent.sdk.Turbine;
 
 public class TestTurbine implements Turbine {
     @Override
-    public Resource source(String name) {
+    public Resource resource(String name) {
         return null;
     }
 
     @Override
-    public Resource source(String resourceName, String collectionName, ConnectionOptions configs) {
+    public Resource resource(String resourceName, String collectionName, ConnectionOptions configs) {
         return null;
     }
 
