@@ -6,5 +6,5 @@ package com.meroxa.turbine.fluent.sdk;
 public interface Resource {
     Records read(String collection, ConnectionOptions options);
 
-    void write(Records records, String collections, ConnectionOptions options);
+    void write(Records records, String collection, ConnectionOptions options);
 }

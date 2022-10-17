@@ -4,9 +4,6 @@ package com.meroxa.turbine.fluent.sdk;
  * Represents Meroxa's Turbine engine.
  */
 public interface Turbine {
-    /**
-     * Returns a {@link Resource} intended to be used as a source in a pipeline.
-     */
     // todo what if a resource is "declared" as a source,
     //  but only ever used as a destination? Should we warn about that?
     Resource resource(String name);
